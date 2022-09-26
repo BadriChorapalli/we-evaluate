@@ -9,7 +9,9 @@ import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import QuizIcon from '@mui/icons-material/Quiz';
+import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 export const mainListItems = (
   <React.Fragment>
     <ListItemButton>
@@ -18,23 +20,29 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton to="/hiring/invitation">
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <CardGiftcardIcon />
       </ListItemIcon>
       <ListItemText primary="Send Invitation" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <PeopleIcon />
+        <StickyNote2Icon />
       </ListItemIcon>
       <ListItemText primary="Template" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <BarChartIcon />
+        <QuizIcon />
       </ListItemIcon>
       <ListItemText primary="Questions" />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <ListItemText primary="Profile" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
@@ -46,31 +54,25 @@ export const mainListItems = (
 );
 export const candidateListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton to="/candidate/dashboard">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItemButton>
-    <ListItemButton to="/candidate/assignment">
+    <ListItemButton to="/candidate/invitations">
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
       <ListItemText primary="Invitations" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton to="/candidate/practice">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Practice" />
     </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Feedbacks" />
-    </ListItemButton>
-    <ListItemButton>
+    <ListItemButton to="/candidate/profile">
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>

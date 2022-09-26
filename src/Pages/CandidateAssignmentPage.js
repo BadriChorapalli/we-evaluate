@@ -48,7 +48,7 @@ const Item = styled(Paper)(({ theme }) => ({
       backgroundColor: purple[700],
     },
   }));
-function AssignmentPage (){
+function CandidateAssignmentPage (){
     const [progress, setProgress] = React.useState(10);
     React.useEffect(() => {
         const timer = setInterval(() => {
@@ -122,4 +122,4 @@ function AssignmentPage (){
       );
 }
   
-export default AssignmentPage;
+export default CandidateAssignmentPage;

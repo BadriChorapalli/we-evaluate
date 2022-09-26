@@ -31,37 +31,28 @@ function Copyright(props) {
 const tiers = [
   {
     title: 'Candidate',
-    price: '0',
     description: [
-      '10 users included',
-      '2 GB of storage',
-      'Help center access',
-      'Email support',
+      'You can learn the specific skills  by our tools for remote work.It helps in key areas for coorpare job',
+      
     ],
     buttonText: 'Sign up for Practice',
     buttonVariant: 'outlined',
   },
   {
     title: 'Contributer',
-    price: '30',
     description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
-      'Phone & email support',
+      'Anyone can contribute the questions and  to earn ETH coins.You can also review the others questions.',
+      
     ],
     buttonText: 'Start Contributing',
     buttonVariant: 'outlined',
   },
   {
     title: 'Hiring',
-    price: '15',
+   
     description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
-    ],
+      'Evaluate the candiate using AI based Technology to save your time for right person to your company.',
+      ],
     buttonText: 'Get started',
     buttonVariant: 'contained',
   }
@@ -121,7 +112,7 @@ function PricingContent() {
             <Link
               variant="button"
               color="text.primary"
-              href="#"
+              href="/contributor"
               sx={{ my: 1, mx: 1.5 }}
             >
               Contributor
@@ -129,7 +120,7 @@ function PricingContent() {
 			<Link
               variant="button"
               color="text.primary"
-              href="#"
+              href="/hiring"
               sx={{ my: 1, mx: 1.5 }}
             >
               Hiring
@@ -137,7 +128,7 @@ function PricingContent() {
 			<Link
               variant="button"
               color="text.primary"
-              href="#"
+              href="/pricing"
               sx={{ my: 1, mx: 1.5 }}
             >
               Pricing
@@ -194,21 +185,7 @@ function PricingContent() {
                   }}
                 />
                 <CardContent>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'baseline',
-                      mb: 2,
-                    }}
-                  >
-                    <Typography component="h2" variant="h3" color="text.primary">
-                      ${tier.price}
-                    </Typography>
-                    <Typography variant="h6" color="text.secondary">
-                      /mo
-                    </Typography>
-                  </Box>
+                 
                   <ul>
                     {tier.description.map((line) => (
                       <Typography
