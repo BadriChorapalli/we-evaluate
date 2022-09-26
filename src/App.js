@@ -23,7 +23,10 @@ render() {
 						<Route path="assignment" element={<AssignmentPage />} />
 						
        			</Route>
-				<Route exact path='/hiring' element={< HiringPage />}></Route>
+				<Route exact path='/hiring' element={< HiringPage />}>
+						<Route path="assignment" element={<AssignmentPage />} />
+						
+				</Route>
 				<Route exact path='/contributor' element={< ContributorPage />}></Route>
 				<Route exact path='/pricing' element={< PricingPage />}></Route>
 				<Route exact path='/contact' element={< ContactPage />}></Route>

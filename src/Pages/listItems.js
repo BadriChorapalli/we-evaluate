@@ -84,6 +84,46 @@ export const candidateListItems = (
     </ListItemButton>
   </React.Fragment>
 );
+export const contributorListItems = (
+  <React.Fragment>
+    <ListItemButton>
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <ListItemText primary="Dashboard" />
+    </ListItemButton>
+    <ListItemButton to="/candidate/assignment">
+      <ListItemIcon>
+        <ShoppingCartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Questions" />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <ListItemText primary="Review" />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <BarChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Feedbacks" />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Profile" />
+    </ListItemButton>
+    <ListItemButton to="/">
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Logout" />
+    </ListItemButton>
+  </React.Fragment>
+);
 
 export const secondaryListItems = (
   <React.Fragment>
@@ -102,7 +142,7 @@ export const secondaryListItems = (
       </ListItemIcon>
       <ListItemText primary="Settings" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton  to="/">
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
