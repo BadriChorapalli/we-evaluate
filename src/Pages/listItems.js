@@ -14,7 +14,7 @@ import QuizIcon from '@mui/icons-material/Quiz';
 import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton to="/hiring/dashboard">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
@@ -26,25 +26,25 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Send Invitation" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton to="/hiring/template">
       <ListItemIcon>
         <StickyNote2Icon />
       </ListItemIcon>
       <ListItemText primary="Template" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton to="/hiring/questions">
       <ListItemIcon>
         <QuizIcon />
       </ListItemIcon>
       <ListItemText primary="Questions" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton to="/hiring/profile">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton to="/">
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>

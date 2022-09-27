@@ -11,7 +11,11 @@ import CandidateDashboardPage from './Pages/CandidateDashboardPage';
 import CandidateInvitationsPage from './Pages/CandidateInvitationsPage';
 import CandidatePracticePage from './Pages/CandidatePracticePage';
 import CandidateProfilePage from './Pages/CandidateProfilePage';
+import HiringDashboardPage from './Pages/HiringDashboardPage';
 import HiringInvitationPage from './Pages/HiringInvitationPage';
+import HiringTemplatePage from './Pages/HiringTemplatePage';
+import HiringQuestionsPage from './Pages/HiringQuestionsPage';
+import HiringProfilePage from './Pages/HiringProfilePage';
 import './App.css';
 
 class App extends Component {
@@ -34,7 +38,11 @@ render() {
 						
        			</Route>
 				<Route exact path='hiring' element={< HiringPage />}>
+						<Route path="dashboard" element={<HiringDashboardPage />} />
 						<Route path="invitation" element={<HiringInvitationPage />} />
+						<Route path="template" element={<HiringTemplatePage />} />
+						<Route path="questions" element={<HiringQuestionsPage />} />
+						<Route path="profile" element={<HiringProfilePage/>} />
 						
 				</Route>
 				<Route exact path='/contributor' element={< ContributorPage />}></Route>
