@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { APP_LOAD, REDIRECT } from './constants/actionTypes';
 import HomePage from './Pages/HomePage';
 import CandidatePage from './Pages/CandidatePage';
 import HiringPage from './Pages/HiringPage';
@@ -16,8 +18,27 @@ import HiringInvitationPage from './Pages/HiringInvitationPage';
 import HiringTemplatePage from './Pages/HiringTemplatePage';
 import HiringQuestionsPage from './Pages/HiringQuestionsPage';
 import HiringProfilePage from './Pages/HiringProfilePage';
+import Login from './Pages/Login';
+import SignIn from './Pages/SignIn';
 import './App.css';
-
+import { store } from './store';
+import { push } from 'react-router-redux';
+import Register from './Pages/Register';
+const mapStateToProps = state => {
+	return {
+	  appLoaded: state.common.appLoaded,
+	  appName: state.common.appName,
+	  currentUser: state.common.currentUser,
+	  redirectTo: state.common.redirectTo
+	}};
+  
+  const mapDispatchToProps = dispatch => ({
+	onLoad: (payload, token) =>
+	  dispatch({ type: APP_LOAD, payload, token, skipTracking: true }),
+	onRedirect: () =>
+	  dispatch({ type: REDIRECT })
+  });
+  
 class App extends Component {
 render() {
 	return (
@@ -48,6 +69,9 @@ render() {
 				<Route exact path='/contributor' element={< ContributorPage />}></Route>
 				<Route exact path='/pricing' element={< PricingPage />}></Route>
 				<Route exact path='/contact' element={< ContactPage />}></Route>
+				<Route exact path='/login' element={< Login />}></Route>
+				<Route exact path='/signin' element={< SignIn />}></Route>
+				<Route exact path='/register' element={< Register />}></Route>
 		</Routes>
 		
 		</div>
@@ -56,4 +80,4 @@ render() {
 }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

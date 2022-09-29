@@ -134,8 +134,14 @@ function PricingContent() {
               Pricing
             </Link>
           </nav>
-          <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+          <Button href="/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             Login
+          </Button>
+          <Button href="/signin" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+            SignIn
+          </Button>
+          <Button href="/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+            Sign Up
           </Button>
         </Toolbar>
       </AppBar>
