@@ -1,3 +1,4 @@
+import agent from './agent';
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -20,6 +21,7 @@ import HiringQuestionsPage from './Pages/HiringQuestionsPage';
 import HiringProfilePage from './Pages/HiringProfilePage';
 import Login from './Pages/Login';
 import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
 import './App.css';
 import { store } from './store';
 import { push } from 'react-router-redux';
@@ -40,6 +42,23 @@ const mapStateToProps = state => {
   });
   
 class App extends Component {
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.redirectTo) {
+		  // this.context.router.replace(nextProps.redirectTo);
+		  store.dispatch(push(nextProps.redirectTo));
+		  this.props.onRedirect();
+		}
+	  }
+	
+	  componentWillMount() {
+		const token = window.localStorage.getItem('jwt');
+		if (token) {
+		  agent.setToken(token);
+		}
+	
+		this.props.onLoad(token ? agent.Auth.current() : null, token);
+	  }
+	
 render() {
 	return (
 	<Router>
@@ -69,9 +88,8 @@ render() {
 				<Route exact path='/contributor' element={< ContributorPage />}></Route>
 				<Route exact path='/pricing' element={< PricingPage />}></Route>
 				<Route exact path='/contact' element={< ContactPage />}></Route>
-				<Route exact path='/login' element={< Login />}></Route>
 				<Route exact path='/signin' element={< SignIn />}></Route>
-				<Route exact path='/register' element={< Register />}></Route>
+				<Route exact path='/signup' element={< SignUp />}></Route>
 		</Routes>
 		
 		</div>

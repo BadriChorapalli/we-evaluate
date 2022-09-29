@@ -128,7 +128,7 @@ class SignIn extends React.Component {
                 </NuLink>
               </Grid>
               <Grid item>
-                <NuLink href="#" variant="body2">
+                <NuLink href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </NuLink>
               </Grid>

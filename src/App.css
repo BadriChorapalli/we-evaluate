@@ -1,7 +1,7 @@
 body {margin:0;
   overflow-y: hidden;
-  background: rgb(110,217,255);
-background: linear-gradient(117deg, rgba(110,217,255,1) 0%, rgba(156,201,251,0.6587009803921569) 57%, rgba(252,252,252,1) 100%);
+  background: rgb(213, 223, 226);
+background: linear-gradient(117deg, rgb(211, 221, 224) 0%, rgba(233, 235, 238, 0.659) 57%, rgba(252,252,252,1) 100%);
 
 }
 .App{
@@ -10,8 +10,8 @@ background: linear-gradient(117deg, rgba(110,217,255,1) 0%, rgba(156,201,251,0.6
 .header{
   background: none;
   transition:none;
-  background: rgb(255,110,232);
-background: linear-gradient(225deg, rgba(255,110,232,1) 0%, rgba(156,201,251,0.6587009803921569) 57%, rgba(252,252,252,1) 100%);
+  background: rgb(255, 253, 255);
+background: linear-gradient(225deg, rgb(255, 255, 255) 0%, rgba(241, 243, 245, 0.659) 57%, rgba(252,252,252,1) 100%);
 }
 .header a{
   text-decoration: none;

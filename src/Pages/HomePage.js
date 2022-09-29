@@ -99,8 +99,8 @@ function PricingContent() {
           <Typography variant="h5" color="inherit" noWrap sx={{ flexGrow: 1 }}>
            WeEvaluate
           </Typography>
-          <nav>
-            <Link
+         <nav>
+         { /*<Link
               variant="button"
               color="text.primary"
               href="/candidate"
@@ -124,7 +124,7 @@ function PricingContent() {
               sx={{ my: 1, mx: 1.5 }}
             >
               Hiring
-            </Link>
+            </Link>*/}
 			<Link
               variant="button"
               color="text.primary"
@@ -133,14 +133,9 @@ function PricingContent() {
             >
               Pricing
             </Link>
-          </nav>
-          <Button href="/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-            Login
-          </Button>
-          <Button href="/signin" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
-            SignIn
-          </Button>
-          <Button href="/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+  </nav>
+         
+          <Button href="/signup" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             Sign Up
           </Button>
         </Toolbar>
@@ -206,7 +201,7 @@ function PricingContent() {
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant}>
+                  <Button fullWidth variant={tier.buttonVariant} href="/signin">
                     {tier.buttonText}
                   </Button>
                 </CardActions>
@@ -215,37 +210,7 @@ function PricingContent() {
           ))}
         </Grid>
       </Container>
-      {/* Footer */}
-      <Container
-        maxWidth="md"
-        component="footer"
-        sx={{
-          borderTop: (theme) => `1px solid ${theme.palette.divider}`,
-          mt: 8,
-          py: [3, 6],
-        }}
-      >
-        <Grid container spacing={4} justifyContent="space-evenly">
-          {footers.map((footer) => (
-            <Grid item xs={6} sm={3} key={footer.title}>
-              <Typography variant="h6" color="text.primary" gutterBottom>
-                {footer.title}
-              </Typography>
-              <ul>
-                {footer.description.map((item) => (
-                  <li key={item}>
-                    <Link href="#" variant="subtitle1" color="text.secondary">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Grid>
-          ))}
-        </Grid>
-        <Copyright sx={{ mt: 5 }} />
-      </Container>
-      {/* End footer */}
+     
     </React.Fragment>
   );
 }
