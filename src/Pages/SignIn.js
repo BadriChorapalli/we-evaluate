@@ -1,11 +1,20 @@
-import * as React from 'react';
+import { Link } from 'react-router-dom';
+import ListErrors from '../Components/ListErrors';
+import React from 'react';
+import agent from '../agent';
+import { connect } from 'react-redux';
+import {
+  UPDATE_FIELD_AUTH,
+  LOGIN,
+  LOGIN_PAGE_UNLOADED
+} from '../constants/actionTypes';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import NuLink from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -13,33 +22,51 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+const mapStateToProps = state => ({ ...state.auth });
+
+const mapDispatchToProps = dispatch => ({
+  onChangeEmail: value =>
+    dispatch({ type: UPDATE_FIELD_AUTH, key: 'email', value }),
+  onChangePassword: value =>
+    dispatch({ type: UPDATE_FIELD_AUTH, key: 'password', value }),
+  onSubmit: (email, password) =>
+    dispatch({ type: LOGIN, payload: agent.Auth.login(email, password) }),
+  onUnload: () =>
+    dispatch({ type: LOGIN_PAGE_UNLOADED })
+});
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <NuLink color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{' '}
+      </NuLink>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
   );
 }
-
 const theme = createTheme();
+class SignIn extends React.Component {
+  constructor() {
+    super();
+    this.changeEmail = ev => this.props.onChangeEmail(ev.target.value);
+    this.changePassword = ev => this.props.onChangePassword(ev.target.value);
+    this.submitForm = (email, password) => ev => {
+      ev.preventDefault();
+      this.props.onSubmit(email, password);
+    };
+  }
 
-export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  componentWillUnmount() {
+    this.props.onUnload();
+  }
 
-  return (
-    <ThemeProvider theme={theme}>
+  render() {
+    const email = this.props.email;
+    const password = this.props.password;
+    return (
+      <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -56,7 +83,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form"  onSubmit={this.submitForm(email, password)} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -66,6 +93,8 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={this.changeEmail}
             />
             <TextField
               margin="normal"
@@ -76,6 +105,8 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={this.changePassword} 
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -83,6 +114,7 @@ export default function SignIn() {
             />
             <Button
               type="submit"
+              disabled={this.props.inProgress}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -91,14 +123,14 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <NuLink href="#" variant="body2">
                   Forgot password?
-                </Link>
+                </NuLink>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <NuLink href="#" variant="body2">
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </NuLink>
               </Grid>
             </Grid>
           </Box>
@@ -106,5 +138,8 @@ export default function SignIn() {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-  );
+    );
+  }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
